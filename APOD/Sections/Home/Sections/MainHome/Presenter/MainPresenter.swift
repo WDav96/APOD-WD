@@ -17,6 +17,7 @@ class MainPresenter {
     // MARK: - Internal Properties
 
     weak var view: PresenterView?
+    var interactor = HomeInteractor()
     
     // MARK: - Initializers
     
@@ -26,21 +27,13 @@ class MainPresenter {
     
     // MARK: - Public Methods
     
-    func passUrl() {        
-        let url = URL(string: "https://api.nasa.gov/planetary/apod?api_key=Y8ZCyniqIkFFF2pXFiGjfMLuusPTZ14kTzBnaQk9&start_date=2022-03-01&end_date=2022-03-07")!
-        
-        URLSession.shared.fetchData(at: url) { result in
+    func getApods() {
+        interactor.getLastsApods { [weak self] (result: Result<[Apod], Error>) in
             switch result {
             case .success(let apods):
-                DispatchQueue.main.async {
-                    //self.view?.display(data: apods)
-                    self.view?.apodList = apods
-                }
-                
-                break
+                self?.view?.apodList = apods
             case .failure(let error):
                 print(error)
-                break
             }
         }
     }

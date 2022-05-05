@@ -19,7 +19,7 @@ class CustomTableViewCell: UITableViewCell {
     
     var apod: Apod? {
         didSet {
-            setupApod()
+            setupCell()
         }
     }
     
@@ -34,7 +34,7 @@ class CustomTableViewCell: UITableViewCell {
     
     // MARK: - Private Methods
     
-    private func setupApod() {
+    private func setupCell() {
         let representedIdentifier = apod?.url ?? ""
         self.representedIdentifier = representedIdentifier
         titleImage.text = apod?.title
@@ -48,9 +48,21 @@ class CustomTableViewCell: UITableViewCell {
             imageService.image(for: url) { image   in
                 if (self.representedIdentifier == representedIdentifier) {
                     self.imageOfDay.image = image
+                    self.imageOfDay.setRounded()
                 }
             }
         }
+    }
+    
+}
+
+extension UIImageView {
+    func setRounded() {
+        self.layoutIfNeeded()
+        self.layer.cornerRadius = self.frame.size.height / 2
+        self.clipsToBounds = true
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.purpleMainColor.cgColor
     }
     
 }

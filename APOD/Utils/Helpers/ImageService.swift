@@ -2,13 +2,15 @@
 //  ImageService.swift
 //  APOD
 //
-//  Created by W.D. on 2/03/22.
+//  Created by _ on 2/03/22.
 //
 
 import UIKit
 
 protocol Cancellable {
+    
     // MARK: - Methods
+    
     func cancel()
 }
 
@@ -22,37 +24,33 @@ final class ImageService {
 
     // MARK: - Public API
 
-    func image(for url: URL, completion: @escaping (UIImage?) -> Void) /*-> Cancellable?*/ {
+    func image(for url: URL, completion: @escaping (UIImage?) -> Void) {
         if let imageData = images.object(forKey: url.absoluteString as NSString) {
-          print("using cached images")
-            guard let image = UIImage(data: imageData as Data) else { return /*nil*/ }
+            print("Using cached images")
+            
+            guard let image = UIImage(data: imageData as Data) else { return }
             completion(image)
-          return /*nil*/
+            
+            return
         }
         
         let dataTask = URLSession.shared.dataTask(with: url) { data, _, _ in
-            // Helper
+            
             var image: UIImage?
 
             defer {
-                // Execute Handler on Main Thread
+                
                 DispatchQueue.main.async {
-                    // Execute Handler
                     completion(image)
                 }
             }
 
             if let data = data {
-                // Create Image from Data
                 self.images.setObject(data as NSData, forKey: url.absoluteString as NSString)
                 image = UIImage(data: data)
             }
         }
-
-        // Resume Data Task
         dataTask.resume()
-
-        //return dataTask
     }
 
 }

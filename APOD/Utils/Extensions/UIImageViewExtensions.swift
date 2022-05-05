@@ -2,7 +2,7 @@
 //  UIImageViewExtensions.swift
 //  APOD
 //
-//  Created by Jorge Luis Rivera Ladino - Ceiba Software on 4/03/22.
+//  Created by J.R. on 4/03/22.
 //
 
 import UIKit
@@ -21,11 +21,13 @@ extension UIImageView {
             DispatchQueue.main.async() { [weak self] in
                 self?.image = image
             }
-        }.resume()
+        }
+        .resume()
     }
     
     func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
     }
+    
 }

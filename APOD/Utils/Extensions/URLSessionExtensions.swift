@@ -2,7 +2,7 @@
 //  URLSessionExtensions.swift
 //  APOD
 //
-//  Created by Jorge Luis Rivera Ladino - Ceiba Software on 4/03/22.
+//  Created by W.D. on 4/03/22.
 //
 
 import Foundation
@@ -23,6 +23,8 @@ extension URLSession {
                     completion(.failure(decoderError))
                 }
             }
-        }.resume()
+        }
+        .resume()
     }
+    
 }

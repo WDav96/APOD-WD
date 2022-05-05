@@ -19,7 +19,7 @@ extension HomeViewController: PresenterView {
 extension HomeViewController: HomeAdapterDelegate {
     
     func didSelectRowAt(apod: Apod, image: UIImage?) {
-        let vc = DescriptionUIViewViewController()
+        let vc = DescriptionViewController()
         vc.modalPresentationStyle = .popover
         vc.apod = apod
         vc.apodImage = image

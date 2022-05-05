@@ -32,18 +32,26 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Astronomy Picture of the Day"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Arial", size: 20) ?? .systemFont(ofSize: 20)]
+        setupNavigationBar()
         
         presenter = MainPresenter(view: self)
+        presenter?.getApods()
+        
         tableView.register(UINib(nibName: String(describing: CustomTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: CustomTableViewCell.self))
         
         tableView.delegate = adapter
         tableView.dataSource = adapter
         adapter.delegate = self
-        
-        presenter?.passUrl()
-        
     }
+    
+    // MARK: - LifeCycle ViewController
+    
+    private func setupNavigationBar() {
+        title = "Astronomy Pictures of the Week"
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.backgroundColor = UIColor.purpleMainColor
+        navigationBar?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+    
 }
 
