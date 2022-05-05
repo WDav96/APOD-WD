@@ -55,16 +55,5 @@ class CustomTableViewCell: UITableViewCell {
     }
     
 }
-
-extension UIImageView {
-    func setRounded() {
-        self.layoutIfNeeded()
-        self.layer.cornerRadius = self.frame.size.height / 2
-        self.clipsToBounds = true
-        self.layer.borderWidth = 0.5
-        self.layer.borderColor = UIColor.purpleMainColor.cgColor
-    }
-    
-}
     
     

@@ -84,12 +84,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		242EA33227D27DC600CE240B /* Sections */ = {
+		242EA33227D27DC600CE240B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				242EA33327D27DCC00CE240B /* Home */,
 			);
-			path = Sections;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		242EA33327D27DCC00CE240B /* Home */ = {
@@ -230,7 +230,7 @@
 				242EA33F27D27EBB00CE240B /* Main */,
 				242EA33D27D27EA300CE240B /* Resources */,
 				242EA33C27D27E9500CE240B /* Utils */,
-				242EA33227D27DC600CE240B /* Sections */,
+				242EA33227D27DC600CE240B /* Modules */,
 			);
 			path = APOD;
 			sourceTree = "<group>";
