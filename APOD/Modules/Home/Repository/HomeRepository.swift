@@ -2,12 +2,12 @@
 //  HomeInteractor.swift
 //  APOD
 //
-//  Created by W.D. on 4/05/22.
+//  Created by David Molina on 4/05/22.
 //
 
 import Foundation
 
-class HomeInteractor {
+class HomeRepository {
     
     func getLastsApods(onCompletion: @escaping ((Result<[Apod], Error>) -> Void)) {
         let currentDateInString = Date().toString()

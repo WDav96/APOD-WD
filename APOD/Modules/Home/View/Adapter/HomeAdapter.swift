@@ -2,13 +2,13 @@
 //  MainAdapter.swift
 //  APOD
 //
-//  Created by W.D. on 4/03/22.
+//  Created by David Molina on 4/03/22.
 //
 
 import UIKit
 
 protocol HomeAdapterDelegate {
-    func didSelectRowAt(apod: Apod, image: UIImage?)
+    func didTapRow(apod: Apod, image: UIImage?)
 }
 
 class HomeAdapter: NSObject {
@@ -16,8 +16,7 @@ class HomeAdapter: NSObject {
     // MARK: - Internal Properties
     
     var apodList: [Apod] = []
-    
-    var delegate: HomeAdapterDelegate?
+    var homeAdapterDelegate: HomeAdapterDelegate?
 }
 
 // MARK: - UITableViewDataSource
@@ -42,7 +41,7 @@ extension HomeAdapter: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell {
-            delegate?.didSelectRowAt(apod: apodList[indexPath.row], image: cell.image)
+            homeAdapterDelegate?.didTapRow(apod: apodList[indexPath.row], image: cell.image)
         }
     }
 }

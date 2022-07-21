@@ -2,36 +2,37 @@
 //  MainPresenter.swift
 //  APOD
 //
-//  Created W.D on 4/03/22.
+//  Created David Molina on 4/03/22.
 //
 
 import Foundation
 
-protocol PresenterView: AnyObject {
+protocol PresentData: AnyObject {
     var apodList: [Apod] { get set }
     func display(data: [Apod])
 }
 
-class MainPresenter {
+class HomePresenter {
     
     // MARK: - Internal Properties
 
-    weak var view: PresenterView?
-    var interactor = HomeInteractor()
+    weak var presentView: PresentData?
+    
+    var repository = HomeRepository()
     
     // MARK: - Initializers
     
-    init(view: PresenterView) {
-        self.view = view
+    init(view: PresentData) {
+        self.presentView = view
     }
     
     // MARK: - Public Methods
     
     func getApods() {
-        interactor.getLastsApods { [weak self] (result: Result<[Apod], Error>) in
+        repository.getLastsApods { [weak self] (result: Result<[Apod], Error>) in
             switch result {
             case .success(let apods):
-                self?.view?.apodList = apods
+                self?.presentView?.apodList = apods
             case .failure(let error):
                 print(error)
             }

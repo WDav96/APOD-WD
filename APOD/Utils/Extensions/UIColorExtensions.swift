@@ -2,7 +2,7 @@
 //  UIColorExtensions.swift
 //  APOD
 //
-//  Created by W.D. on 4/05/22.
+//  Created by David Molina on 4/05/22.
 //
 
 import Foundation

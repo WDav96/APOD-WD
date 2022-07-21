@@ -54,9 +54,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="dateImage" destination="UmW-Uk-wg2" id="wSw-36-HbW"/>
-                <outlet property="imageOfDay" destination="WPO-0H-RpX" id="ucT-Zo-9Jp"/>
-                <outlet property="titleImage" destination="9LL-84-iS6" id="ztq-Qg-9Yd"/>
+                <outlet property="apodImageView" destination="WPO-0H-RpX" id="ucT-Zo-9Jp"/>
+                <outlet property="dateLabel" destination="UmW-Uk-wg2" id="wSw-36-HbW"/>
+                <outlet property="titleLabel" destination="9LL-84-iS6" id="ztq-Qg-9Yd"/>
             </connections>
             <point key="canvasLocation" x="7.2463768115942031" y="93.75"/>
         </tableViewCell>

@@ -2,7 +2,7 @@
 //  DescriptionViewController.swift
 //  APOD
 //
-//  Created by W.D. on 3/02/22.
+//  Created by David Molina on 3/02/22.
 //
 
 import UIKit
@@ -32,12 +32,13 @@ class DescriptionViewController: UIViewController {
     
     private func setupView() {
         titleLabel.text = apod?.title
-        if let image = apodImage {
-            self.image.image = image
-            self.image.setRounded()
-        }
         authorDateLabel.text = "\(apod?.copyright ?? "Unknown") - \(apod?.date ?? "")"
         descriptionLabel.text = apod?.explanation
+        
+        guard let image = apodImage else { return }
+        
+        self.image.image = image
+        self.image.setRounded()
     }
     
 }

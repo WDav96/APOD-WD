@@ -2,7 +2,7 @@
 //  Model.swift
 //  APOD
 //
-//  reated by W.D. on 3/02/22.
+//  Created by David Molina on 3/02/22.
 //
 
 import Foundation
