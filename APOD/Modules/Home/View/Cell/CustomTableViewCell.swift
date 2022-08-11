@@ -30,7 +30,6 @@ class CustomTableViewCell: UITableViewCell {
     // MARK: - Private Properties
     
     private var imageService = ImageService()
-    private var urlIdentifier: String = ""
     
     // MARK: - Private Methods
     

@@ -28,7 +28,7 @@ class DescriptionViewController: UIViewController {
         setupView()
     }
     
-    // MARK: - Lifecycle ViewController
+    // MARK: - Private Properties
     
     private func setupView() {
         titleLabel.text = apod?.title
